@@ -1,0 +1,209 @@
+/*flashlight cursor*/
+/*:root {
+  cursor: none;
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+}
+:root:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 10vmax at var(--cursorX) var(--cursorY),
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.5) 80%,
+    rgba(0,0,0,.95) 100%
+  )
+}*/
+#intro { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: no-repeat;
+    background-size: cover;
+    display: none; 
+}
+
+#header{
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 5%;
+  left: 12%;
+  font-family: 'Nothing You Could Do', cursive;
+  text-shadow: 8px 8px 12px grey;
+}
+
+#description{
+  color: grey;
+  font-size: 50px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+#our-name{
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 80%;
+  left: 30%;
+}
+
+#skull{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  opacity: 2%;
+}
+
+#skip{
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 80%;
+  right: 7%;
+  background-color: transparent;
+  border-color: transparent;
+  display: none;
+}
+
+#skip:hover{
+  cursor: pointer;
+}
+
+#skip:focus {outline:0;}
+
+@keyframes example{
+  from{display: inline-block;}
+  to{display: none;}
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+.scene {
+  perspective: 1000;
+  width: 10em;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-left: -5em;
+  margin-top: -5em;
+}
+
+.cube {
+  color: #ccc;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+  transform-style: preserve-3d;
+  transform-origin: 100% 50%;
+  width: 10em;
+  height: 4em;
+}
+
+.cube:hover {
+    transform: rotateX(-90deg);
+  }
+
+
+.side {
+  box-sizing: border-box;
+  position: absolute;
+  display: inline-block;
+  height: 4em;
+  width: 10em;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 1.5em;
+}
+
+.top {
+  background: #fff;
+  color: #222229;
+  transform: rotateX(90deg) translate3d(0, 0, 2em);
+}
+
+.front {
+  background: #222229;
+  color: #fff;
+  box-shadow: inset 0 0 0 5px #fff;
+  transform: translate3d(0, 0, 2em);
+}
+/*fog effect*/
+/** {
+  margin: 0;
+  padding: 0;
+}
+html , body {
+  height: 100%;
+  width: 100;
+  overflow: hidden;
+}
+.fog-wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.fog, .fogR {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  top: auto;
+  background: url(http://www.invisionapp.com/subsystems/do_ui_kit/assets/img/clouds.png);
+  background: url(http://pcwallart.com/images/fog-clouds-png-wallpaper-2.jpg);
+  background: url(http://img13.deviantart.net/b5ed/i/2013/033/d/0/cloud_fog_by_moonglowlilly-d5tk3l7.png);
+}
+
+.img1 {
+  opacity: 0;
+  left: 0%;
+  width: 384px;
+  height: 180px;
+    background: url(http://s28.postimg.org/q35imkctp/fog1.png) no-repeat;
+}
+.img3 {
+  left: 20%;
+  width: 674px;
+  height: 493px;
+    background: url(http://s28.postimg.org/nqxioz08d/fog3.png) no-repeat;
+}
+.img4 {
+  right: 50%;
+  width: 596px;
+  height: 387px;
+    background: url(http://s28.postimg.org/pvmxn686l/fog7.png) no-repeat;
+}
+.img6 {
+  right: 40px;
+  bottom: -50px;
+  width: 494px;
+  height: 275px;
+    background: url(http://s28.postimg.org/d09w3amlp/fog5.png) no-repeat;
+}*/

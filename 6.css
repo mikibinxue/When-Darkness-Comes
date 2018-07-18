@@ -1,0 +1,321 @@
+/*flashlight cursor*/
+/*:root {
+  cursor: none;
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+}
+:root:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 20vmax at var(--cursorX) var(--cursorY),
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.5) 80%,
+    rgba(0,0,0,.95) 100%
+  )
+}*/
+
+canvas {
+      vertical-align: top;
+    } 
+    #cvs_div{
+      background-color: black;
+      display:none;
+
+    }
+    #defaultCanvas0 {
+      width: 50vw !important;
+      height: 50vw !important;
+      margin-left: 25vw;
+    } 
+
+#bg6 { 
+    background-image: url("images/6.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bg7 { 
+    background-image: url("images/7.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg8-1 { 
+    background-image: url("images/8-1.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg8-2 { 
+    background-image: url("images/8-2.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg8-3 { 
+    background-image: url("images/8-3.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg4 { 
+    background-image: url("images/4.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg5 { 
+    background-image: url("images/5.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#bg5-1 { 
+    background-image: url("images/5-1.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#chineseNumber { 
+    background-image: url("images/number.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#chineseNumber:hover{
+	cursor: pointer;
+}
+
+#flag{
+	position: absolute;
+	left: 40%;
+	top: 15%;
+	height: 300px;
+	width: 120px;
+	opacity: 0;
+}
+
+#flag:hover{
+	cursor: pointer;
+}
+
+#book{
+	position: absolute;
+	right: 35%;
+	top: 50%;
+	height: 100px;
+	width: 230px;
+	opacity: 0;
+	display: none;
+}
+
+#book:hover{
+	cursor: pointer;
+}
+
+#tidyBook{
+	position: absolute;
+	right: 30%;
+	top: 40%;
+	height: 350px;
+	width: 150px;
+	opacity: 0;
+	display: none;
+}
+
+#tidyBook:hover{
+	cursor: pointer;
+}
+
+#outBook{
+	position: absolute;
+	right: 25%;
+	top: 72%;
+	height: 170px;
+	width: 400px;
+	opacity: 0;
+	display: none;
+}
+
+#outBook:hover{
+	cursor: pointer;
+}
+
+#openedBook{
+	position: absolute;
+	right: 40%;
+	top: 52%;
+	height: 400px;
+	width: 400px;
+	opacity: 0;
+	display: none;
+}
+
+#openedBook:hover{
+	cursor: pointer;
+}
+
+#phone{
+	position: absolute;
+	left: 12%;
+	top: 133%;
+	height: 100px;
+	width: 40px;
+	opacity: 0;
+	display: none;
+}
+
+#phone:hover{
+	cursor: pointer;
+}
+
+#phoneZoomed {
+	position: absolute;
+	left: 22%;
+	top: 1%;
+	height: 700px;
+	width: 350px;
+	opacity: 0;
+	display: none;
+}
+
+#phoneZoomed:hover{
+	cursor: pointer;
+}
+
+#secondphone {
+	position: absolute;
+	left: 22%;
+	top: 1%;
+	height: 700px;
+	width: 350px;
+	opacity: 0;
+	display: none;
+}
+
+#secondphone:hover{
+	cursor: pointer;
+}
+
+#explain{
+	color: white;
+	position: absolute;
+	left: 3%;
+	top: 3%;
+	font-size: 60px;
+	display: none;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+    position: fixed;
+    top: 85%;
+    right: 5%;
+    color: white;
+    font-size: 100px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup{
+  /*-webkit-border-top-left-radius: 1px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 4px;
+
+  -moz-border-radius-topleft: 1px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 4px;
+
+  border-top-left-radius: 1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 4px;
+
+  border-color: white;*/
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popuptext{
+	font-size: 20px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}

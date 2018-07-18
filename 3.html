@@ -1,0 +1,149 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="3.css">
+	<script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+</head>
+
+<body onclick="sound_indicator()" style="margin: 0; padding: 0;">
+	<div id="bg3-1"></div>
+	<div id="bg3-2"></div>
+	<div id="bg4"></div>
+	<div id="bg5"></div>
+	<div id="bg5-1"></div>
+	<div id="cvs_div"></div>
+
+	<div class="popup" onclick="myFunction()">i
+  <span class="popuptext" id="myPopup">Click around or scroll page to discover the place.</span>
+</div>
+
+    <div id="explain"><p>Dial 6 digits.</p></div>
+
+    <audio id="right_alert">
+		<source src="audio/right-alert.wav" type="audio/wav">
+		Your browser does not support this element
+	</audio>
+
+	<audio id="wrong_alert">
+		<source src="audio/wrong-alert.wav" type="audio/wav">
+		Your browser does not support this element
+</audio>
+
+	<button id="open" onclick="openBook()"></button>
+	<button id="phone" onclick="bigPhone()"></button>
+	<button id="phoneZoomed" onclick="answerPhone()"></button>
+	<button id="secondphone" onclick="toDialNumber()"></button>
+
+	<audio id="cd">
+		<source src="audio/3-2.wav" type="audio/wav">
+	</audio>
+
+	<audio id="heyStranger">
+		<source src="audio/5-1.mp3" type="audio/mp3">
+	</audio>
+
+	<audio autoplay loop>
+		<source src="audio/bgm.wav" type="audio/wav">
+	</audio>
+
+	<script type="text/javascript">
+	var click_wrong = true;
+
+var a_right = document.getElementById("right_alert");
+var a_wrong = document.getElementById("wrong_alert");
+
+//for the sound
+function sound_indicator(){
+	
+		if(click_wrong){
+			a_wrong.play();
+
+		}else{
+			a_right.play();
+
+		}
+		click_wrong = true;
+}
+
+	function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    //to toggle the alert sound played
+    click_wrong = false;
+}
+
+//var x;
+//var y;
+
+var cD = document.getElementById("cd");
+
+	function openBook(){
+		document.getElementById("bg3-1").style.display = "none";
+		document.getElementById("bg3-2").style.display = "block";
+		document.getElementById("open").style.display = "none";
+		cD.play();
+		click_wrong = false;
+	}
+
+	function bigPhone(){
+		document.getElementById("bg3-2").style.display = "none";
+		document.getElementById("bg4").style.display = "none";
+		document.getElementById("bg5").style.display = "block";
+		document.getElementById("phoneZoomed").style.display = "block";
+		document.getElementById("phone").style.display = "none";
+		click_wrong = false;
+	}
+    
+    var stranger = document.getElementById("heyStranger");
+
+	function answerPhone(){
+		document.getElementById("bg5").style.display = "none";
+		document.getElementById("bg5-1").style.display = "block";
+		document.getElementById("secondphone").style.display = "block";
+		document.getElementById("phoneZoomed").style.display = "none";
+		stranger.play();
+		click_wrong = false;
+	}
+
+	function toDialNumber(){
+
+		document.getElementById("bg5-1").style.display = "none";
+		document.getElementById("secondphone").style.display = "none";
+		document.getElementById("cvs_div").style.display = "block";
+		document.getElementById("explain").style.display = "block";
+		click_wrong = false;
+	}
+
+	window.onload = function(){
+		var theDelay = 35;
+		var timer = setTimeout("scroll()", theDelay*1000);
+		// update();
+	}
+
+// var up = false;
+
+	function scroll(){
+		document.getElementById("bg4").style.display = "block";
+		document.getElementById("phone").style.display = "block";
+        // up = true;
+	}
+
+//flashlight cursor
+		// function update(e){
+  //       var x = e.clientX || e.touches[0].clientX
+  //       var y = e.clientY || e.touches[0].clientY
+
+  //       document.documentElement.style.setProperty('--cursorX', x + 'px')
+  //       document.documentElement.style.setProperty('--cursorY', y + 'px')
+  //       }
+
+  //       document.addEventListener('mousemove',update)
+  //       document.addEventListener('touchmove',update)
+			
+</script>
+</body>

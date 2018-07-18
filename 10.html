@@ -1,0 +1,84 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="10.css">
+	<script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch2.js" type="text/javascript"></script>
+</head>
+
+<body onclick="sound_indicator()" style="margin: 0; padding: 0;">
+	<div id="bg11"></div>
+	<div id="cvs_div" onclick = "mute_alert()"></div>
+
+	<div class="popup" onclick="myFunction()">i
+  <span class="popuptext" id="myPopup">Click around or scroll page to discover the place.</span>
+</div>
+
+<div id="step">Press "confirm"<br>after rotating.</div>
+
+	<audio autoplay>
+		<source src="audio/11.wav" type="audio/wav">
+	</audio>
+
+	<audio id="right_alert">
+		<source src="audio/right-alert.wav" type="audio/wav">
+		Your browser does not support this element
+	</audio>
+
+	<audio id="wrong_alert">
+		<source src="audio/wrong-alert.wav" type="audio/wav">
+		Your browser does not support this element
+</audio>
+
+<audio autoplay loop>
+		<source src="audio/bgm.wav" type="audio/wav">
+	</audio>
+
+	<button id="goCode" onclick="code()"></button>
+
+	<script type="text/javascript">
+	var click_wrong = true;
+
+var a_right = document.getElementById("right_alert");
+var a_wrong = document.getElementById("wrong_alert");
+
+//for the sound
+function sound_indicator(){
+	
+		if(click_wrong){
+			a_wrong.play();
+
+		}else{
+			a_right.play();
+
+		}
+		click_wrong = true;
+}
+
+function mute_alert(){
+	click_wrong = false;
+}
+
+	function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    //to toggle the alert sound played
+    click_wrong = false;
+}
+
+	function code(){
+		document.getElementById("goCode").style.display = "none";
+		document.getElementById("cvs_div").style.display = "block";
+		document.getElementById("step").style.display = "block";
+		document.getElementById("myPopup").innerHTML = "The computers revealed the seccret of the golden angle.";
+		click_wrong = false;
+	}
+
+//rotate the round chair
+//or use p5 input the code "135"
+	</script>
+</body>

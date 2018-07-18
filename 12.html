@@ -1,0 +1,114 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="12.css">
+</head>
+
+<body onclick="sound_indicator()" style="margin: 0; padding: 0;">
+	<div id="bg12"></div>
+	<div id="bg13"></div>
+	<div id="bg14"></div>
+
+	<div class="popup" onclick="myFunction()">i
+  <span class="popuptext" id="myPopup">Click around or scroll page to discover the place.</span>
+</div>
+
+	<audio autoplay>
+		<source src="audio/13.wav" type="audio/wav">
+	</audio>
+
+	<audio id="what">
+		<source src="audio/14.wav" type="audio/wav">
+	</audio>
+
+	<audio id="right_alert">
+		<source src="audio/right-alert.wav" type="audio/wav">
+		Your browser does not support this element
+	</audio>
+
+	<audio id="wrong_alert">
+		<source src="audio/wrong-alert.wav" type="audio/wav">
+		Your browser does not support this element
+</audio>
+
+<audio autoplay id="bgm" loop>
+		<source src="audio/bgm.wav" type="audio/wav">
+	</audio>
+
+	<button id="zombie" onclick="bigZombie()"></button>
+	<button id="key" onclick="bigKey()"></button>
+	<button id="zoomedKey" onclick="toEnd()"></button>
+
+	<video id="ending">
+		<source src="video/ending.mp4" type="video/mp4">
+	</video>
+
+	<script type="text/javascript">
+	var click_wrong = true;
+
+var a_right = document.getElementById("right_alert");
+var a_wrong = document.getElementById("wrong_alert");
+
+//for the sound
+function sound_indicator(){
+	
+		if(click_wrong){
+			a_wrong.play();
+
+		}else{
+			a_right.play();
+
+		}
+		click_wrong = true;
+}
+
+	function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    //to toggle the alert sound played
+    click_wrong = false;
+}
+
+
+	function bigZombie(){
+		document.getElementById("bg13").style.display = "block";
+		document.getElementById("key").style.display = "block";
+		document.getElementById("bg12").style.display = "none";
+		document.getElementById("zombie").style.display = "none";
+		click_wrong = false;
+		document.getElementById("myPopup").innerHTML = "Why is he clenching his fist so tight?";
+	}
+
+	var wat = document.getElementById("what");
+
+	function bigKey(){
+		document.getElementById("bg14").style.display = "block";
+		document.getElementById("zoomedKey").style.display = "block";
+		document.getElementById("bg13").style.display = "none";
+		document.getElementById("key").style.display = "none";
+		click_wrong = false;
+		wat.play();
+		document.getElementById("myPopup").innerHTML = "Seize the oppotunity in front of you and escape!";
+	}
+
+	var playing = false;
+	var bgm = document.getElementById("bgm");
+
+	function toEnd(){
+		document.getElementById("bg14").style.display = "none";
+		document.getElementById("zoomedKey").style.display = "none";
+		document.getElementById("ending").style.display = "block";
+		document.getElementById("ending").play();
+		playing = true;
+		click_wrong = false;
+		bgm.pause();
+	}
+
+	var myvid = document.getElementById('ending');
+
+    myvid.onended = function(e){
+    	if (playing == true){
+    	location.href = "index.html";}
+    }
+	</script>
+</body>

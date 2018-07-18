@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="3-1.css">
+	<script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+<style></style>
+</head>
+
+<body onmouseover="update()" style="margin: 0; padding: 0;">
+	<div id="bg3-1"></div>
+	<div id="bg3-2"></div>
+	<div id="bg4"></div>
+	<div id="bg5"></div>
+	<div id="bg5-1"></div>
+	<div id="cvs_div"></div>
+
+	<button id="open" onclick="openBook()"></button>
+	<button id="phone" onclick="bigPhone()"></button>
+	<button id="phoneZoomed" onclick="answerPhone()"></button>
+	<button id="secondphone" onclick="toDialNumber()"></button>
+
+	<audio id="heyStranger">
+		<source src="audio/5-1.mp3" type="audio/mp3">
+	</audio>
+
+	<script type="text/javascript">
+var x;
+var y;
+
+	function openBook(){
+		document.getElementById("bg3-1").style.display = "none";
+		document.getElementById("bg3-2").style.display = "block";
+		document.getElementById("open").style.display = "none";
+	}
+
+	function bigPhone(){
+		document.getElementById("bg4").style.display = "none";
+		document.getElementById("bg5").style.display = "block";
+		document.getElementById("phoneZoomed").style.display = "block";
+		document.getElementById("phone").style.display = "none";
+		document.getElementById("bg3-2").style.display = "none";
+	}
+    
+    var stranger = document.getElementById("heyStranger");
+
+	function answerPhone(){
+		document.getElementById("bg5").style.display = "none";
+		document.getElementById("bg5-1").style.display = "block";
+		document.getElementById("secondphone").style.display = "block";
+		document.getElementById("phoneZoomed").style.display = "none";
+		stranger.play();
+	}
+
+	function toDialNumber(){
+
+		document.getElementById("bg5-1").style.display = "none";
+		document.getElementById("secondphone").style.display = "none";
+		document.getElementById("cvs_div").style.display = "block";
+	}
+
+	window.onload = function(){
+		var theDelay = 5;
+		var timer = setTimeout("scroll()", theDelay*1000);
+		// update();
+	}
+
+var up = false;
+
+	function scroll(){
+		document.getElementById("bg4").style.display = "block";
+		document.getElementById("phone").style.display = "block";
+        up = true;
+        document.head.lastChild.append('background: radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 80%,rgba(0,0,0,.95) 100%);'}
+	}
+
+
+
+	//flashlight cursor
+		function update(e){
+			//console.log("checking");
+			if (up == true) {
+				console.log(up);
+				document.querySelector(':root').style.display = "block";
+        x = e.clientX || e.touches[0].clientX;
+        y = e.clientY || e.touches[0].clientY;
+
+        document.documentElement.style.setProperty('--cursorX', x + 'px');
+        document.documentElement.style.setProperty('--cursorY', y + 'px');
+
+
+        }
+        document.addEventListener('mousemove',update, {passive: true});
+        document.addEventListener('touchmove',update, {passive: true});
+    }
+			
+</script>
+</body>

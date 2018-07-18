@@ -1,0 +1,249 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="9.css">
+</head>
+
+<body onclick="sound_indicator()" style="margin: 0; padding: 0;" onmouseover="goKey()">
+
+<div class="popup" onclick="myFunction()">i
+  <span class="popuptext" id="myPopup">Click around or scroll page to discover the place.</span>
+</div>
+
+    <audio id="succeed">
+    	<source src="audio/10.wav" type="audio/wav">
+    </audio>
+
+    <audio id="right_alert">
+		<source src="audio/right-alert.wav" type="audio/wav">
+		Your browser does not support this element
+	</audio>
+
+	<audio id="wrong_alert">
+		<source src="audio/wrong-alert.wav" type="audio/wav">
+		Your browser does not support this element
+</audio>
+
+<audio autoplay loop>
+		<source src="audio/bgm.wav" type="audio/wav">
+	</audio>
+
+	<div id="bg9-1"></div>
+	<div id="bg9-2"></div>
+	<div id="cpReset"></div>
+	<div id="reset1"></div>
+	<div id="workReset1"></div>
+	<div id="workReset3"></div>
+	<div id="workReset5"></div>
+	<div id="pic1"></div>
+	<div id="pic3"></div>
+	<div id="pic5"></div>
+	<div id="bg10"></div>
+
+<!-- computer buttons from left to right -->
+	<button id="c1" onclick="resetDead1()"></button>
+	<button id="c2" onclick="resetWork1()"></button>
+	<button id="c3" onclick="resetDead3()"></button>
+	<button id="c4" onclick="resetWork3()"></button>
+	<button id="c5" onclick="resetWork5()"></button>
+
+	<button id="static" onclick="goStatic()"></button>
+	<button id="choiceMade" onclick="backReset()"></button>
+	<button id="number1" onclick="show1()"></button>
+	<button id="number3" onclick="show3()"></button>
+	<button id="number5" onclick="show5()"></button>
+
+	<a href="10.html"><button id="chair" onclick="bigChair()"></button></a>
+
+	<script type="text/javascript">
+	var click_wrong = true;
+
+var a_right = document.getElementById("right_alert");
+var a_wrong = document.getElementById("wrong_alert");
+
+//for the sound
+function sound_indicator(){
+	
+		if(click_wrong){
+			a_wrong.play();
+
+		}else{
+			a_right.play();
+
+		}
+		click_wrong = true;
+}
+
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    //to toggle the alert sound played
+    click_wrong = false;
+}
+
+	var c1clicked = false;
+	var c2clicked = false;
+	var c3clicked = false;
+	var c4clicked = false;
+	var c5clicked = false;
+	
+	//flashlight cursor
+		function update(e){
+        var x = e.clientX || e.touches[0].clientX
+        var y = e.clientY || e.touches[0].clientY
+
+        document.documentElement.style.setProperty('--cursorX', x + 'px')
+        document.documentElement.style.setProperty('--cursorY', y + 'px')
+        }
+
+        document.addEventListener('mousemove',update)
+        document.addEventListener('touchmove',update)
+
+	function resetDead1(){
+		document.getElementById("bg9-2").style.display = "none";
+		document.getElementById("c1").style.display = "none";
+		document.getElementById("c2").style.display = "none";
+		document.getElementById("c3").style.display = "none";
+		document.getElementById("c4").style.display = "none";
+		document.getElementById("c5").style.display = "none";
+		document.getElementById("cpReset").style.display = "block";
+		document.getElementById("static").style.display = "block";
+		c1clicked = true;
+		click_wrong = false;
+	}
+
+	function resetDead3(){
+		document.getElementById("bg9-2").style.display = "none";
+		document.getElementById("c1").style.display = "none";
+		document.getElementById("c2").style.display = "none";
+		document.getElementById("c3").style.display = "none";
+		document.getElementById("c4").style.display = "none";
+		document.getElementById("c5").style.display = "none";
+		document.getElementById("cpReset").style.display = "block";
+		document.getElementById("static").style.display = "block";
+		c3clicked = true;
+		click_wrong = false;
+	}
+
+	function goStatic(){
+		document.getElementById("reset1").style.display = "block";
+		document.getElementById("cpReset").style.display = "none";
+		document.getElementById("static").style.display = "none";
+		document.getElementById("choiceMade").style.display = "block";
+		click_wrong = false;
+	}
+
+	function resetWork1(){
+		document.getElementById("bg9-2").style.display = "none";
+		document.getElementById("c1").style.display = "none";
+		document.getElementById("c2").style.display = "none";
+		document.getElementById("c3").style.display = "none";
+		document.getElementById("c4").style.display = "none";
+		document.getElementById("c5").style.display = "none";
+		document.getElementById("workReset1").style.display = "block";
+		document.getElementById("number1").style.display = "block";
+		c2clicked = true;
+		click_wrong = false;
+	}
+
+	function show1(){
+		document.getElementById("pic1").style.display = "block";
+		document.getElementById("workReset1").style.display = "none";
+		document.getElementById("number1").style.display = "none";
+		document.getElementById("choiceMade").style.display = "block";
+		click_wrong = false;
+	}
+
+	function resetWork3(){
+		document.getElementById("bg9-2").style.display = "none";
+		document.getElementById("c1").style.display = "none";
+		document.getElementById("c2").style.display = "none";
+		document.getElementById("c3").style.display = "none";
+		document.getElementById("c4").style.display = "none";
+		document.getElementById("c5").style.display = "none";
+		document.getElementById("workReset3").style.display = "block";
+		document.getElementById("number3").style.display = "block";
+		c4clicked = true;
+		click_wrong = false;
+	}
+
+	function show3(){
+		document.getElementById("pic3").style.display = "block";
+		document.getElementById("workReset3").style.display = "none";
+		document.getElementById("number3").style.display = "none";
+		document.getElementById("choiceMade").style.display = "block";
+		click_wrong = false;
+	}
+
+	function resetWork5(){
+		document.getElementById("bg9-2").style.display = "none";
+		document.getElementById("c1").style.display = "none";
+		document.getElementById("c2").style.display = "none";
+		document.getElementById("c3").style.display = "none";
+		document.getElementById("c4").style.display = "none";
+		document.getElementById("c5").style.display = "none";
+		document.getElementById("workReset5").style.display = "block";
+		document.getElementById("number5").style.display = "block";
+		c5clicked = true;
+		click_wrong = false;
+	}
+
+	function show5(){
+		document.getElementById("pic5").style.display = "block";
+		document.getElementById("workReset5").style.display = "none";
+		document.getElementById("number5").style.display = "none";
+		document.getElementById("choiceMade").style.display = "block";
+		click_wrong = false;
+	}
+
+	function backReset(){
+		document.getElementById("reset1").style.display = "none";
+		document.getElementById("pic1").style.display = "none";
+		document.getElementById("pic3").style.display = "none";
+		document.getElementById("pic5").style.display = "none";
+		document.getElementById("choiceMade").style.display = "none";
+		document.getElementById("c1").style.display = "block";
+		document.getElementById("c2").style.display = "block";
+		document.getElementById("c3").style.display = "block";
+		document.getElementById("c4").style.display = "block";
+		document.getElementById("c5").style.display = "block";
+		document.getElementById("bg9-2").style.display = "block";
+		click_wrong = false;
+	}
+
+
+
+//proceed after checking all the computers
+var never_succeed = document.getElementById("succeed");
+
+	function goKey(){
+		if (c1clicked == true &&
+			c2clicked == true &&
+			c3clicked == true &&
+			c4clicked == true &&
+			c5clicked == true) {
+			document.getElementById("bg10").style.display = "block";
+		    never_succeed.play();
+		    document.getElementById("chair").style.display = "block";
+		    console.log("success");
+		    document.getElementById("myPopup").innerHTML = "That yellow chair looks strange...";
+		}
+		console.log("running");
+	}
+
+	window.onload = function(){
+		var theDelay = 3;
+		var timer = setTimeout("scroll()", theDelay*1000);
+	}
+
+	function scroll(){
+		document.getElementById("bg9-2").style.display = "block";
+		document.getElementById("c1").style.display = "block";
+		document.getElementById("c2").style.display = "block";
+		document.getElementById("c3").style.display = "block";
+		document.getElementById("c4").style.display = "block";
+		document.getElementById("c5").style.display = "block";
+		document.getElementById("bg9-1").style.display = "none";
+	}
+</script>
+</body>

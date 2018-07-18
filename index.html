@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Gafata|Roboto:700'>
+	<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Ravi+Prakash|Special+Elite" rel="stylesheet">
+</head>
+
+<body style="background-color: black">
+    <audio autoplay loop id="creepy">
+    	<source src="audio/scary.mp3" type="audio/mpeg">
+    </audio>
+
+	<div id="header"><p><b>When Darkness Comes</b></p></div>
+	<div id="description"><p>A Room Escape Game</p></div>
+	<div id="our-name"><p>A Web Project by Shiny and Miki</p></div>
+	<img src="images/skeleton.png" id="skull" width="400" height="500">
+	<img src="images/fog.png" id="fog" >
+
+	<button id="skip" class="blink" onclick="startPlay()"><i>>>>SKIP</i></button>
+
+	<video id="intro">
+		<source src="video/intro.mp4" type="video/mp4">
+	</video>
+
+	<div id="turn" class="scene" onclick="playIntro()">
+  <div class="cube">
+    <span class="side top">Play</span>
+    <span class="side front">Start</span>
+  </div>
+</div>
+
+	<!-- <div class="fog-wrapper">
+	<div class="fog1" class="img1"></div>
+	<div class="fog3" class="img3"></div>
+	<div class="fog4" class="img4"></div>
+	<div class="fog6" class="img6"></div>
+    </div> -->
+
+	<script type="text/javascript">
+	var playing = false;
+	var creepy = document.getElementById("creepy");
+
+	function playIntro(){
+		document.getElementById("header").style.display = "none";
+		document.getElementById("description").style.display = "none";
+		document.getElementById("our-name").style.display = "none";
+		document.getElementById("skull").style.display = "none";
+		document.getElementById("turn").style.display = "none";
+		document.getElementById("skip").style.display = "block";
+		document.getElementById("intro").style.display = "block";
+		document.getElementById("intro").play();
+		playing = true;
+		creepy.pause();
+		document.getElementById("fog").style.display = "none";
+	}
+
+	function startPlay(){
+		window.location.href = "1.html";
+	}
+
+	var myvid = document.getElementById('intro');
+
+    myvid.onended = function(e){
+    	if (playing == true){
+    	location.href = "1.html";}
+    }
+
+// 	myvid.addEventListener('ended', function(e) {
+// 		window.location.href = "1.html";
+// }
+
+		// //flashlight cursor
+		// function update(e){
+  //       var x = e.clientX || e.touches[0].clientX
+  //       var y = e.clientY || e.touches[0].clientY
+
+  //       document.documentElement.style.setProperty('--cursorX', x + 'px')
+  //       document.documentElement.style.setProperty('--cursorY', y + 'px')
+  //       }
+
+  //       document.addEventListener('mousemove',update)
+  //       document.addEventListener('touchmove',update)
+
+        //foggy effect
+        // var fog1 = document.querySelectorAll('.img1'),
+        // fog2 = document.querySelectorAll('.img3'),
+        // fog3 = document.querySelectorAll('.img4'),
+        // fog4 = document.querySelectorAll('.img6');
+    
+        // TweenMax.to(fog1, 40, {opacity:1, delay:10, left: '100%', ease:Linear.easeNone, repeat:-1, yoyo:true});
+        // TweenMax.to(fog3, 40, {delay:0.5, right: '100%', ease:Linear.easeNone});
+        // TweenMax.to(fog4, 35, {right: '100%', ease:Linear.easeNone});
+        // TweenMax.to(fog2, 50, {delay:0.5, left: '100%', ease: Linear.easeNone});
+	</script>
+</body>

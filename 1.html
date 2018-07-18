@@ -1,0 +1,80 @@
+<!DOCTYPE>
+<head>
+	<title>ROOM ESCAPE</title>
+	<link rel="stylesheet" type="text/css" href="1.css">
+</head>
+
+<body onclick="sound_indicator()" style="margin: 0; padding: 0;">
+	<div id="bg1"></div>
+	<div id="bg2"></div>
+
+	<div class="popup" onclick="myFunction()">i
+  <span class="popuptext" id="myPopup">Click around or scroll page to discover the place.</span>
+</div>
+
+	<a href="3.html"><button id="skull"></button></a>
+
+	<audio autoplay loop>
+		<source src="audio/bgm.wav" type="audio/wav">
+	</audio>
+
+	<audio id="right_alert">
+		<source src="audio/right-alert.wav" type="audio/wav">
+		Your browser does not support this element
+	</audio>
+
+	<audio id="wrong_alert">
+		<source src="audio/wrong-alert.wav" type="audio/wav">
+		Your browser does not support this element
+</audio>
+
+	<script type="text/javascript">
+	//for the sound alert
+var click_wrong = true;
+
+var a_right = document.getElementById("right_alert");
+var a_wrong = document.getElementById("wrong_alert");
+
+//for the sound
+function sound_indicator(){
+	
+		if(click_wrong){
+			a_wrong.play();
+
+		}else{
+			a_right.play();
+
+		}
+		click_wrong = true;
+}
+
+	//flashlight cursor
+		function update(e){
+        var x = e.clientX || e.touches[0].clientX
+        var y = e.clientY || e.touches[0].clientY
+
+        document.documentElement.style.setProperty('--cursorX', x + 'px')
+        document.documentElement.style.setProperty('--cursorY', y + 'px')
+        }
+
+        document.addEventListener('mousemove',update)
+        document.addEventListener('touchmove',update)
+
+	window.onload = function(){
+		var theDelay = 5;
+		var timer = setTimeout("scroll()", theDelay*1000);
+	}
+
+	function scroll(){
+		document.getElementById("bg2").style.display = "block";
+		document.getElementById("skull").style.display = "block";
+	}
+
+	function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    //to toggle the alert sound played
+    click_wrong = false;
+}
+</script>
+</body>
